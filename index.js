@@ -80,6 +80,6 @@ const PORT = 8000
 
 app.listen(PORT, () => console.log("server started on PORT " + PORT))
 
-app.get("*", async () => {
-   return "Let's work"
+app.get("*", async (req, res) => {
+   return res.json({message: "succcess"})
 })
