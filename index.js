@@ -57,7 +57,7 @@ bot.on("message", async msg => {
    }
 })
 
-app.post("/web-data", async (req, res) => {
+app.post("/api/web-data", async (req, res) => {
    const {queryId, products = [], totalPrice} = req.body
    try {
       await bot.answerWebAppQuery(queryId, {
@@ -70,9 +70,9 @@ app.post("/web-data", async (req, res) => {
                .join(", ")}`
          }
       })
-      return res.status(200).json({})
+      return res.status(200).json({message: "success"})
    } catch (e) {
-      return res.status(500).json({})
+      return res.status(500).json({message: "error"})
    }
 })
 
