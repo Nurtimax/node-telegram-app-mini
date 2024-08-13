@@ -76,12 +76,13 @@ app.post("/web-data", async (req, res) => {
    }
 })
 
-const PORT = 3000
+const PORT = 9000
 
 app.listen(PORT, () => console.log("server started on PORT " + PORT))
 
-app.get("/", (req, res) => res.send("Express on Vercel"))
-
-app.listen(PORT, () => console.log(`Server ready on port ${PORT}.`))
+app.get("/", (req, res) => {
+   console.log("get")
+   return res.send("Express on Vercel")
+})
 
 module.exports = app
