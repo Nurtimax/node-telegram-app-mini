@@ -9,11 +9,7 @@ const bot = new TelegramBot(token, {polling: true})
 const app = express()
 
 app.use(express.json())
-app.use(
-   cors({
-      origin: "*" // Adjust this to your needs
-   })
-)
+app.use(cors())
 
 bot.setWebHook(`${webAppUrl}/bot${token}`)
 
@@ -63,6 +59,11 @@ bot.on("message", async msg => {
    }
 })
 
+app.get("/", (req, res) => {
+   console.log("get")
+   return res.send("Express on Vercel")
+})
+
 app.get("/api/web-data", async (req, res) => {
    console.log("get web data")
 
@@ -89,13 +90,7 @@ app.post("/api/web-data", async (req, res) => {
    }
 })
 
-const PORT = 9000
+const PORT = 3001
 
 app.listen(PORT, () => console.log("server started on PORT " + PORT))
-
-app.get("/", (req, res) => {
-   console.log("get")
-   return res.send("Express on Vercel")
-})
-
 module.exports = app

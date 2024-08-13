@@ -4,12 +4,14 @@
    "description": "",
    "main": "index.js",
    "scripts": {
-      "start": "nodemon index.js"
+      "start": "nodemon index.js",
+      "build-sdk": "cd ../../; npm i; npm run build"
    },
    "keywords": [],
    "author": "",
    "license": "ISC",
    "devDependencies": {
+      "vercel": "^33.5.5",
       "nodemon": "^2.0.19"
    },
    "dependencies": {
